@@ -5,16 +5,14 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.CommonFragment"
-    android:background="@color/white"
+    android:background="@color/gray_app"
     android:paddingTop="16dp">
-
     <!-- TODO: Update blank fragment layout -->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_common"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="@color/black"
         android:paddingTop="8dp"/>
 
     <include
@@ -24,6 +22,4 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

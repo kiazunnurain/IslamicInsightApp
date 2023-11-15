@@ -2,7 +2,7 @@
 <!--TODO 4 - Defining a background color for the splash screen-->
 <resources>
     <style name="Base.Theme.SplashScreen." parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenBackground">@color/black</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/splash_logo</item>
         <item name="postSplashScreenTheme">@style/Theme.MuslimMediaApp</item>
     </style>

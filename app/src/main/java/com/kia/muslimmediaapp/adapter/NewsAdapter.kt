@@ -63,16 +63,25 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.MyViewHolder>() {
         //for print log info on the logcat, especially for date and time
         Log.i("NewsAdapter", "onBindViewHolder:$dateResultFormat")
         Log.i("NewsAdapter", "onBindViewHolder:$timeResultFormat")
+
         val newsDate = "$dateResultFormat | "
         val newsTime = "$timeResultFormat UTC"
+
         holder.binding.apply {
             tvSource.text = news.source?.name
             tvTitle.text = news.title
             tvDate.text = newsDate
             tvTime.text = newsTime
-            Picasso.get().load(news.urlToImage)
+            Picasso
+                .get()
+                .load(news.urlToImage)
+                .resize(2048, 1600)
+                .onlyScaleDown()
                 .placeholder(R.drawable.ic_logo)
                 .into(ivNews)
+//            Picasso.get().load(news.urlToImage)
+//                .placeholder(R.drawable.ic_logo)
+//                .into(ivNews)
         }
         holder.itemView.setOnClickListener {
             val intent = Intent(it.context, DetailActivity::class.java)

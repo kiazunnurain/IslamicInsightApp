@@ -15,7 +15,7 @@
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:contentScrim="@color/white"
+            app:contentScrim="@color/gray_app"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
             app:titleEnabled="false">
 
@@ -34,7 +34,7 @@
                     android:textAlignment="textStart"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_detail_publishAt"
@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_detail_title"/>
+                    app:layout_constraintTop_toBottomOf="@id/tv_detail_title" />
 
                 <TextView
                     android:id="@+id/tv_detail_author"
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="@id/tv_detail_publishAt"
-                    app:layout_constraintTop_toBottomOf="@id/tv_detail_publishAt"/>
+                    app:layout_constraintTop_toBottomOf="@+id/tv_detail_publishAt" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
@@ -64,20 +64,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:contentDescription="@string/content_image_news"/>
+                        android:contentDescription="@string/content_image_news" />
 
                 </com.google.android.material.card.MaterialCardView>
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar_detail"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/white"
+                android:background="@color/gray_app"
                 app:layout_collapseMode="pin" />
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -89,8 +88,7 @@
             android:id="@+id/wv_detail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="16dp"/>
-
+            android:layout_margin="16dp" />
     </androidx.core.widget.NestedScrollView>
 
     <include
@@ -98,6 +96,6 @@
         layout="@layout/loading_indicator"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_anchorGravity="center"/>
+        app:layout_anchorGravity="center" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

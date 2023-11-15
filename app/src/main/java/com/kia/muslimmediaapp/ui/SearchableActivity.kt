@@ -14,7 +14,7 @@ import com.kia.muslimmediaapp.adapter.NewsAdapter
 import com.kia.muslimmediaapp.databinding.ActivitySearchableBinding
 
 class SearchableActivity : AppCompatActivity() {
-    private var _binding : ActivitySearchableBinding? = null
+    private var _binding: ActivitySearchableBinding? = null
     private val binding get() = _binding as ActivitySearchableBinding
 
     private var _searchViewModel: NewsViewModel? = null
@@ -29,7 +29,6 @@ class SearchableActivity : AppCompatActivity() {
 
         _searchViewModel = ViewModelProvider(this)[NewsViewModel::class.java]
         binding.loadingView.root.visibility = View.VISIBLE
-
         handleIntent(intent)
 
         searchViewModel.searchNews.observe(this) {
@@ -49,7 +48,6 @@ class SearchableActivity : AppCompatActivity() {
             }
             binding.loadingView.root.visibility = View.GONE
         }
-
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         binding.searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
     }
@@ -57,7 +55,6 @@ class SearchableActivity : AppCompatActivity() {
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
-        //handle intent function
         handleIntent(intent)
     }
 
@@ -74,16 +71,16 @@ class SearchableActivity : AppCompatActivity() {
                         searchView.queryHint = query
                         searchView.clearFocus()
                     }
-                    //checking the search result
+                    //to check the result
                     doMySearch(query)
                 }
         }
     }
-
     private fun doMySearch(q: String) {
         searchViewModel.searchNews(q)
     }
 
+    // to make sure the app killing
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

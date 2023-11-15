@@ -10,6 +10,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+// menangani action when ada pengambilan data / Handle action when there is data retrieval
+// saving the business logic and create separates between UI dan logic
+// MutableLiveData = can be change, the key is var
+// LiveData = can't be change, the key is val
 class NewsViewModel: ViewModel() {
     private var _commonMuslimNews = MutableLiveData<NewsResponse>()
     val commonMuslimNews get() = _commonMuslimNews as LiveData<NewsResponse>
@@ -64,20 +68,19 @@ class NewsViewModel: ViewModel() {
                     if (response.isSuccessful) {
                         Log.i(
                             "ViewModel",
-                            "onResponse: Call success with HTTP status code ${response.body()}"
+                            "onResponse: ${response.body()}"
                         )
                         _aboutAlQuranNews.postValue(response.body())
-
                     } else Log.e(
                         "ViewModel",
-                        "onResponse: Call error with HTTP status code" + response.code()
+                        "onResponse: ${response.code()}"
                     )
                 }
 
                 override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
                     Log.e(
                         "ViewModel",
-                        "onFailure " + t.localizedMessage
+                        "onFailure ${t.localizedMessage}"
                     )
                 }
             })
@@ -98,14 +101,14 @@ class NewsViewModel: ViewModel() {
                         _alJazeeraNews.postValue(response.body())
                     } else Log.e(
                         "ViewModel",
-                        "onResponse: Call error with HTTP status code " + response.code()
+                        "onResponse: ${response.code()}"
                     )
                 }
 
                 override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
                     Log.e(
                         "ViewModel",
-                        "onFailure: " + t.localizedMessage
+                        "onFailure: ${t.localizedMessage}"
                     )
                 }
             })
@@ -126,14 +129,13 @@ class NewsViewModel: ViewModel() {
                         _warningForMuslimNews.postValue(response.body())
                     } else Log.e(
                         "ViewModel",
-                        "onResponse: Call error with HTTP status code " + response.code()
+                        "onResponse: ${response.body()}"
                     )
                 }
-
                 override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
                     Log.e(
                         "ViewModel",
-                        "onFailure: " + t.localizedMessage
+                        "onFailure: ${t.localizedMessage}"
                     )
                 }
             })
@@ -141,27 +143,27 @@ class NewsViewModel: ViewModel() {
 
     fun searchNews(q: String) {
         ApiClient.provideApiService().getSearchNews(q)
-            .enqueue(object : Callback<NewsResponse> {
+            .enqueue(object : Callback<NewsResponse>{
                 override fun onResponse(
                     call: Call<NewsResponse>,
                     response: Response<NewsResponse>
                 ) {
-                    if (response.isSuccessful){
+                    if (response.isSuccessful) {
                         Log.i(
                             "ViewModel",
                             "onResponse: ${response.body()}"
                         )
                         _searchNews.postValue(response.body())
                     } else Log.e(
-                            "ViewModel",
-                        "onResponse: Call error with HTTP status code" + response.code()
+                        "ViewModel",
+                        "onResponse: Call error with HTTP status code ${response.body()}"
                     )
                 }
 
                 override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
                     Log.e(
                         "ViewModel",
-                        "onFailure: " + t.localizedMessage
+                        "onFailure: ${t.localizedMessage}"
                     )
                 }
             })

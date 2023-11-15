@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kia.muslimmediaapp.NewsViewModel
 import com.kia.muslimmediaapp.adapter.NewsAdapter
-import com.kia.muslimmediaapp.databinding.FragmentAboutAlQuranBinding
 import com.kia.muslimmediaapp.databinding.FragmentAlJazeeraBinding
 
 
